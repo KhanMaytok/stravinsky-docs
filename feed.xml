@@ -5,9 +5,24 @@
     <description>Apuntes sobre desarrollo y tecnología en general.</description>
     <link>http://dev.maytok.com/</link>
     <atom:link href="http://dev.maytok.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 29 Mar 2016 23:10:42 +0000</pubDate>
-    <lastBuildDate>Tue, 29 Mar 2016 23:10:42 +0000</lastBuildDate>
+    <pubDate>Thu, 14 Apr 2016 18:54:18 +0000</pubDate>
+    <lastBuildDate>Thu, 14 Apr 2016 18:54:18 +0000</lastBuildDate>
     <generator>Jekyll v3.1.1</generator>
+    
+      <item>
+        <title>Reticulating splines</title>
+        <description>&lt;p&gt;Winka!&lt;/p&gt;
+</description>
+        <pubDate>Fri, 01 Apr 2016 11:11:11 +0000</pubDate>
+        <link>http://dev.maytok.com/personal/2016/04/01/reticulating-splines/</link>
+        <guid isPermaLink="true">http://dev.maytok.com/personal/2016/04/01/reticulating-splines/</guid>
+        
+        <category>personal</category>
+        
+        
+        <category>Personal</category>
+        
+      </item>
     
       <item>
         <title>Instalar Jekyll en Windows sin dolor</title>
