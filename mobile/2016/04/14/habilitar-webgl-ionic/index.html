@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Habilitar WebGL en Ionic con Crosswalk - DEV Maytok</title>
 <meta name="description" content="Apuntes sobre desarrollo y tecnología en general.">
-<link rel="canonical" href="http://dev.maytok.com/mobile/2016/02/19/habilitar-webgl-ionic/">
+<link rel="canonical" href="http://dev.maytok.com/mobile/2016/04/14/habilitar-webgl-ionic/">
 <meta name="author" content="Giancarlo Ventura" />
 <link rel="shortcut icon" href="http://www.maytok.com/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href=" /css/normalize.css " />
@@ -74,16 +74,18 @@
 						<div class="meta meta--full">
 							<img class="meta__avatar" src="http://www.maytok.com/img/profile-photo.jpg" alt="author"  height="45" width="45" />
 							<span class="meta__author">Giancarlo Ventura</span>
-							<span class="meta__date"><i class="fa fa-calendar-o"></i><time class="timeago" datetime="2016-02-19T15:23:34+00:00">Cargando...</time></span>
+							<span class="meta__date"><i class="fa fa-calendar-o"></i><time class="timeago" datetime="2016-04-14T15:14:34+00:00">Cargando...</time></span>
 							<span class="meta__reading-time"><i class="fa fa-clock-o"></i>Léelo en 1  min.</span>
 						</div>
 						<p>En Android, puede ser complicado mostrar proyectos basados en WebGL si se usa Ionic Framework. 
 Ionic se basa en Cordova, que permite desarrollar aplicaciones basadas en un WebView.</p>
 
-<p>¿Cuál es el problema? WebGL no es soportado en WebViews antes de Android Lollipop.
+<p>¿Cuál es el problema? WebGL no es soportado en WebViews para versiones anteriores que 
+Android Lollipop.
 En KitKat, Android cambió a Chromium como la implementación de  WebView nativa, 
-pero está bloqueada a Chromium 33, que no tiene WebGL. En Lollipop, sin embargo, puedes habilitarlo
-a través de una actualización vía Play Store, para habilitar el soporte. (fuente: https://developer.chrome.com/multidevice/webview/overview)</p>
+pero está bloqueada a Chromium 33, que no tiene WebGL. En Lollipop, sin embargo, 
+puedes habilitarlo a través de una actualización vía Play Store, para habilitar el soporte. 
+(fuente: https://developer.chrome.com/multidevice/webview/overview)</p>
 
 <p><strong>¿Wow, wow, y para las otras versiones de Android? ¿Imposible?</strong></p>
 
@@ -102,7 +104,7 @@ sino que también puedes modificarlo.</p>
 
 <p><strong>¿Y está en Ionic?</strong></p>
 
-<p>¡Sí en Android! solo tienes que ejecutar:</p>
+<p>¡Claro! solo tienes que ejecutar:</p>
 
 <figure class="highlight"><pre><code class="language-cli" data-lang="cli">ionic browser add crosswalk</code></pre></figure>
 

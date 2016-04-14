@@ -5,9 +5,9 @@
 	<meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reticulating splines - DEV Maytok</title>
+<title>Instalar Jekyll en Windows sin dolor - DEV Maytok</title>
 <meta name="description" content="Apuntes sobre desarrollo y tecnología en general.">
-<link rel="canonical" href="http://dev.maytok.com/personal/2016/04/01/reticulating-splines/">
+<link rel="canonical" href="http://dev.maytok.com/jekyll/2016/04/14/jekyll-windows-sin-dolor/">
 <meta name="author" content="Giancarlo Ventura" />
 <link rel="shortcut icon" href="http://www.maytok.com/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href=" /css/normalize.css " />
@@ -69,15 +69,85 @@
 			<section class="content content--show" style="top: 0px;">
 				<div class="scroll-wrap">
 					<article class="content__item content__item--show" id="post-content">
-						<span class="category category--full">Personal</span>
-						<h2 class="title title--full">Reticulating splines</h2>
+						<span class="category category--full">Jekyll</span>
+						<h2 class="title title--full">Instalar Jekyll en Windows sin dolor</h2>
 						<div class="meta meta--full">
 							<img class="meta__avatar" src="http://www.maytok.com/img/profile-photo.jpg" alt="author"  height="45" width="45" />
 							<span class="meta__author">Giancarlo Ventura</span>
-							<span class="meta__date"><i class="fa fa-calendar-o"></i><time class="timeago" datetime="2016-04-01T11:11:11+00:00">Cargando...</time></span>
+							<span class="meta__date"><i class="fa fa-calendar-o"></i><time class="timeago" datetime="2016-04-14T15:04:34+00:00">Cargando...</time></span>
 							<span class="meta__reading-time"><i class="fa fa-clock-o"></i>Léelo en 1  min.</span>
 						</div>
-						<p>Winka!</p>
+						<p>Instalar Jekyll en Windows por vez primera puede ser un auténtico dolor… en la parte del cuerpo que quieras.
+Afortunadamente, la cantidad de pasos puede reducirse 
+significativamente y podemos comenzar a crear nuestros sitios estáticos sin seguir un camino
+complicado y lleno de espinos. Nuestra ruta adornada de flores será:</p>
+
+<ul>
+  <li>Instalar Chocolatey</li>
+  <li>Instalar Ruby (a través de Chocolatey)</li>
+  <li>Instalar Jekyll</li>
+</ul>
+
+<p><strong>¿Choco qué?</strong></p>
+
+<p><a href="https://chocolatey.org/">Chocolatey</a> es un excelente gestor de paquetes al estilo Linux, solo que para Windows.
+¡Sí, puedes usar la consola de comandos de Windows para instalar programas! En el día de creación
+de este post, hay casi 3800 paquetes que <a href="https://chocolatey.org/packages">puedes instalar</a>.</p>
+
+<p>Espera… ¿Quién eres tú?</p>
+
+<p><strong>Soy una línea en negrita que simula una voz en tu cabeza. ¿De veras crees</strong>
+<strong>que el blog conseguirá visitas inventándome?</strong></p>
+
+<p>No lo sé, igual podemos eliminarte después.</p>
+
+<p><strong>¿Ehmm, podemos comenzar ya?</strong></p>
+
+<p>Bien, vamos a instalarlo. Abre una consola con permisos administrativos y escribe:</p>
+
+<pre>
+<code class="language-powershell">
+@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" &amp;&amp; SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+</code>
+</pre>
+
+<p>Cuando se instale, necesitarás cerrar la consola y abrir una nueva (También con permisos administrativos).</p>
+
+<p><strong>¿Y ahora?</strong></p>
+
+<pre>
+<code class="language-bash">
+choco install ruby -y
+</code>
+</pre>
+
+<p><strong>¿Luego? Estoy impaciente</strong></p>
+
+<p>Cierras y abres una nueva consola (Tranquilo…)</p>
+
+<pre>
+<code class="language-bash">
+gem install jekyll
+</code>
+</pre>
+
+<p>Y eso es todo lo que se necesita. Ahora puedes comenzar a crear sitios estáticos
+fácil y sin dolor.</p>
+
+<pre>
+<code class="language-bash">
+jekyll new mysite
+cd mysite
+jekyll serve
+</code>
+</pre>
+
+<p>A propósito, este sitio está soportado en Jekyll y albergado
+en Github. Si quieres, puedes echar un vistazo al <a href="https://github.com/KhanMaytok/maytok-blog-source">repositorio</a>. 
+(Siento el código desordenado, prometo echarle una revisión después)</p>
+
+<p>El template está basado por completo en un <a href="http://tympanus.net/codrops/2015/04/15/grid-item-animation-layout/">artículo</a> de <a href="http://tympanus.net/codrops/author/crnacura/">Mary Lou</a> 
+para <a href="http://tympanus.net/codrops">Codrops</a>.</p>
 
 					</article>
 				</div>
