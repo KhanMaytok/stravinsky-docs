@@ -5,9 +5,55 @@
     <description>Apuntes sobre desarrollo y tecnología en general.</description>
     <link>http://dev.maytok.com/</link>
     <atom:link href="http://dev.maytok.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 14 Apr 2016 22:24:54 +0000</pubDate>
-    <lastBuildDate>Thu, 14 Apr 2016 22:24:54 +0000</lastBuildDate>
+    <pubDate>Sat, 16 Apr 2016 15:09:02 +0000</pubDate>
+    <lastBuildDate>Sat, 16 Apr 2016 15:09:02 +0000</lastBuildDate>
     <generator>Jekyll v3.1.1</generator>
+    
+      <item>
+        <title>Importación masiva con doctrine</title>
+        <description>&lt;p&gt;Las importaciones masivas de datos, también conocidas como &lt;em&gt;bulk inserts&lt;/em&gt;, son 
+una manera para, en una base de datos, insertar muchas filas en una tabla con 
+una sola transacción.&lt;/p&gt;
+
+&lt;p&gt;Para doctrine, hay una manera fácil y genial de realizarla:&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&quot;language-php&quot;&gt;
+&amp;lt;?php
+$batchSize = 20; //Número de filas para insertar a la vez
+for ($i = 1; $i &amp;lt;= 10000; ++$i) {
+    $user = new CmsUser;
+    $user-&amp;gt;setStatus(&#39;user&#39;);
+    $user-&amp;gt;setUsername(&#39;user&#39; . $i);
+    $user-&amp;gt;setName(&#39;Mr.Smith-&#39; . $i);
+    $em-&amp;gt;persist($user);
+    if (($i % $batchSize) === 0) {
+        $em-&amp;gt;flush();
+        $em-&amp;gt;clear(); // Limpiamos todos los objetos de Doctrine. Importante!
+    }
+}
+$em-&amp;gt;flush(); //Guardamos los objetos que se han quedado afuera del batch
+$em-&amp;gt;clear();
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;Si deseas conocer más, aquí puedes encontrar toda la (documentación de Doctrine)[http://doctrine-orm.readthedocs.org/en/latest/reference/batch-processing.html]
+sobre el tema (en inglés). Y como siempre, gracias por leernos.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 14 Apr 2016 15:14:34 +0000</pubDate>
+        <link>http://dev.maytok.com/php/2016/04/14/bulk-inserts-doctrine/</link>
+        <guid isPermaLink="true">http://dev.maytok.com/php/2016/04/14/bulk-inserts-doctrine/</guid>
+        
+        <category>doctrine</category>
+        
+        <category>php</category>
+        
+        <category>mysql</category>
+        
+        
+        <category>PHP</category>
+        
+      </item>
     
       <item>
         <title>Habilitar WebGL en Ionic con Crosswalk</title>
