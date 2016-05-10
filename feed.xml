@@ -5,9 +5,89 @@
     <description>Apuntes sobre desarrollo y tecnología en general.</description>
     <link>http://dev.maytok.com/</link>
     <atom:link href="http://dev.maytok.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 04 May 2016 15:17:13 +0000</pubDate>
-    <lastBuildDate>Wed, 04 May 2016 15:17:13 +0000</lastBuildDate>
+    <pubDate>Tue, 10 May 2016 17:11:55 +0000</pubDate>
+    <lastBuildDate>Tue, 10 May 2016 17:11:55 +0000</lastBuildDate>
     <generator>Jekyll v3.1.1</generator>
+    
+      <item>
+        <title>Autenticación con password en Apache</title>
+        <description>&lt;p&gt;A menudo, cuando levantamos un servidor, queremos restringir el acceso a partes del mismo.
+Si bien hay innumerables maneras de lograrlo, una muy fácil y sencilla es 
+usar una de las utilidades que Apache nos brinda. Hoy aprenderemos como.&lt;/p&gt;
+
+&lt;p&gt;Necesitaremos, obviamente, apache y un paquete de utilidades&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&quot;language-cli&quot;&gt;
+sudo apt-get update
+sudo apt-get install apache2 apache2-utils
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;Ahora vamos a crear el archivo de usuarios y claves. Si vamos a hacerlo por primera vez, 
+debemos añadir el flag &lt;code class=&quot;highlighter-rouge&quot;&gt;-c&lt;/code&gt; al comando, cosa que obviaremos si vamos a añadir otro.&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&quot;language-cli&quot;&gt;
+sudo htpasswd -c /etc/apache2/.htpasswd waka
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;La terminal te pedirá una contraseña. Recuerda que para añadir un usuario debes escribir…&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&quot;language-cli&quot;&gt;
+sudo htpasswd /etc/apache2/.htpasswd nuevo_waka_user
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Espera, espera… ¿estamos guardando los usuarios y sus contraseñas en texto plano?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;No. Si revisamos el contenido del archivo .htpasswd, veremos algo como…&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&quot;language-cli&quot;&gt;
+waka:$apr1$lz.IfXG$tsC.vCwb49vfPF$GVsuYz.
+nuevo_waka_user:$apr1$p1E9MeAf$k.eUewr.MhAE2kKGYHK.
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;¡Genial, ahora tengo todo protegido!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Aun no… Hemos creado la llave, ahora crearemos la cerradura.&lt;/p&gt;
+
+&lt;p&gt;No importa si proteges el directorio con .htaccess o un virtual host, el comando es el mismo.
+Solo tienes que escribir tres líneas para estar listo:&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&quot;language-apacheconf&quot;&gt;
+&amp;lt;Directory &quot;/var/www/html&quot;&amp;gt;
+    AuthType Basic
+    AuthName &quot;Restricted Content&quot;
+    AuthUserFile /etc/apache2/.htpasswd
+    Require valid-user
+&amp;lt;/Directory&amp;gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;En el ejemplo, estamos protegiendo el directorio &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;/var/www/html&quot;&lt;/code&gt; con los usuarios que
+pusimos en el archivo &lt;code class=&quot;highlighter-rouge&quot;&gt;.htpasswd&lt;/code&gt;. Ahora, si ingresamos, veremos algo como:&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 09 May 2016 11:14:34 +0000</pubDate>
+        <link>http://dev.maytok.com/servidores/2016/05/09/autenticacion-password-apache/</link>
+        <guid isPermaLink="true">http://dev.maytok.com/servidores/2016/05/09/autenticacion-password-apache/</guid>
+        
+        <category>apache</category>
+        
+        <category>password</category>
+        
+        <category>ubuntu</category>
+        
+        
+        <category>Servidores</category>
+        
+      </item>
     
       <item>
         <title>Importación masiva con doctrine</title>

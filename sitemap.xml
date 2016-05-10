@@ -3,6 +3,21 @@
   
     
     <url>
+      <loc>http://dev.maytok.com/servidores/2016/05/09/autenticacion-password-apache/</loc>
+      
+        <lastmod>2016-05-09T11:14:34+00:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://dev.maytok.com/php/2016/04/16/bulk-inserts-doctrine/</loc>
       
         <lastmod>2016-04-16T09:14:34+00:00</lastmod>
@@ -65,7 +80,7 @@
     <url>
       <loc>http://dev.maytok.com</loc>
       
-        <lastmod>2016-05-04T15:17:13+00:00</lastmod>
+        <lastmod>2016-05-10T17:11:55+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>

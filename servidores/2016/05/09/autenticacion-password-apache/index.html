@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es" class=" js csstransitions">
+
+<head>
+	<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autenticación con password en Apache - DEV Maytok</title>
+<meta name="description" content="Apuntes sobre desarrollo y tecnología en general.">
+<link rel="canonical" href="http://dev.maytok.com/servidores/2016/05/09/autenticacion-password-apache/">
+<meta name="author" content="Giancarlo Ventura" />
+<link rel="shortcut icon" href="http://www.maytok.com/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href=" /css/normalize.css " />
+<link rel="stylesheet" type="text/css" href=" /css/style1.css " />
+<link rel="stylesheet" type="text/css" href=" /css/custom.css " />
+<!-- <link rel="stylesheet" type="text/css" href=" /css/solarized-dark.css " /> -->
+<!-- <link rel="stylesheet" type="text/css" href=" /css/prism.css " /> -->
+<link rel="stylesheet" type="text/css" href=" /css/prism.css " />
+<script src=" /js/modernizr.custom.js "></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+</head>
+
+<body class="view-single noscroll">
+	<div class="container">
+		<button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
+		<div id="theSidebar" class="sidebar">
+	<button class="close-button fa fa-fw fa-close"></button>
+	<!--
+	<div class="codrops-links">
+		<a href="http://tympanus.net/Tutorials/MotionBlurEffect/" title="Previous Demo"><i class="ion-icon ion-ios-person"></span></a>
+		<a class="codrops-icon codrops-icon--drop" href="http://tympanus.net/codrops/?p=23872" title="Back to the article"><span>Back to the Codrops article</span></a>
+	</div>
+	-->
+	<a href="/" class="main-link"><h1><span>DEV MAYTOK<span></h1></a>
+</div>
+
+		<div id="theGrid" class="main">
+			<section class="grid">
+				<header class="top-bar">
+					<h2 class="top-bar__headline">Latest articles</h2>
+					<div class="filter">
+						<span>Filter by:</span>
+						<span class="dropdown">Popular</span>
+					</div>
+				</header>
+				<a class="grid__item grid__item--loading grid__item--animate" href="#">
+					<h2 class="title title--preview">On Humans &amp; other Beings</h2>
+					<div class="loader"></div>
+					<span class="category">Stories for humans</span>
+					<div class="meta meta--preview">
+						<img class="meta__avatar" src="http://www.maytok.com/img/profile-photo.jpg" alt="author">
+						<span class="meta__date"><i class="fa fa-calendar-o"></i> 9 Apr</span>
+						<span class="meta__reading-time"><i class="fa fa-clock-o"></i> 3 min read</span>
+					</div>
+				</a>
+				<footer class="page-meta">
+					<span>Cargar más...</span>
+				</footer>
+				<div class="placeholder placeholder--trans-out" style="transform: translate3d(-5px, -5px, 0px);"></div>
+			</section>
+			<section class="content content--show" style="top: 0px;">
+				<div class="scroll-wrap">
+					<article class="content__item content__item--show" id="post-content">
+						<span class="category category--full">Servidores</span>
+						<h2 class="title title--full">Autenticación con password en Apache</h2>
+						<div class="meta meta--full">
+							<img class="meta__avatar" src="http://www.maytok.com/img/profile-photo.jpg" alt="author"  height="45" width="45" />
+							<span class="meta__author">Giancarlo Ventura</span>
+							<span class="meta__date"><i class="fa fa-calendar-o"></i><time class="timeago" datetime="2016-05-09T11:14:34+00:00">Cargando...</time></span>
+							<span class="meta__reading-time"><i class="fa fa-clock-o"></i>Léelo en 1  min.</span>
+						</div>
+						<p>A menudo, cuando levantamos un servidor, queremos restringir el acceso a partes del mismo.
+Si bien hay innumerables maneras de lograrlo, una muy fácil y sencilla es 
+usar una de las utilidades que Apache nos brinda. Hoy aprenderemos como.</p>
+
+<p>Necesitaremos, obviamente, apache y un paquete de utilidades</p>
+
+<pre>
+<code class="language-cli">
+sudo apt-get update
+sudo apt-get install apache2 apache2-utils
+</code>
+</pre>
+
+<p>Ahora vamos a crear el archivo de usuarios y claves. Si vamos a hacerlo por primera vez, 
+debemos añadir el flag <code class="highlighter-rouge">-c</code> al comando, cosa que obviaremos si vamos a añadir otro.</p>
+
+<pre>
+<code class="language-cli">
+sudo htpasswd -c /etc/apache2/.htpasswd waka
+</code>
+</pre>
+
+<p>La terminal te pedirá una contraseña. Recuerda que para añadir un usuario debes escribir…</p>
+
+<pre>
+<code class="language-cli">
+sudo htpasswd /etc/apache2/.htpasswd nuevo_waka_user
+</code>
+</pre>
+
+<p><strong>Espera, espera… ¿estamos guardando los usuarios y sus contraseñas en texto plano?</strong></p>
+
+<p>No. Si revisamos el contenido del archivo .htpasswd, veremos algo como…</p>
+
+<pre>
+<code class="language-cli">
+waka:$apr1$lz.IfXG$tsC.vCwb49vfPF$GVsuYz.
+nuevo_waka_user:$apr1$p1E9MeAf$k.eUewr.MhAE2kKGYHK.
+</code>
+</pre>
+
+<p><strong>¡Genial, ahora tengo todo protegido!</strong></p>
+
+<p>Aun no… Hemos creado la llave, ahora crearemos la cerradura.</p>
+
+<p>No importa si proteges el directorio con .htaccess o un virtual host, el comando es el mismo.
+Solo tienes que escribir tres líneas para estar listo:</p>
+
+<pre>
+<code class="language-apacheconf">
+&lt;Directory "/var/www/html"&gt;
+    AuthType Basic
+    AuthName "Restricted Content"
+    AuthUserFile /etc/apache2/.htpasswd
+    Require valid-user
+&lt;/Directory&gt;
+</code>
+</pre>
+
+<p>En el ejemplo, estamos protegiendo el directorio <code class="highlighter-rouge">"/var/www/html"</code> con los usuarios que
+pusimos en el archivo <code class="highlighter-rouge">.htpasswd</code>. Ahora, si ingresamos, veremos algo como:</p>
+
+
+					</article>
+				</div>
+				<button class="close-button close-button--show"><i class="fa fa-close"></i><span>Cerrar</span></button>
+			</section>
+		</div>
+	</div>
+	<!-- /container -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="/js/classie.js"></script>
+	<script src="/js/main.js"></script>
+	<script src="/js/jquery.timeago.js"></script>
+	<script src="/js/prism.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+    		$("time.timeago").timeago();
+   		});
+	</script>
+</body>
+
+</html>
