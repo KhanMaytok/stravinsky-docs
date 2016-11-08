@@ -3,10 +3,10 @@
   <channel>
     <title>DEV Maytok</title>
     <description>Apuntes sobre desarrollo y tecnología en general.</description>
-    <link>http://dev.maytok.com/</link>
-    <atom:link href="http://dev.maytok.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 08 Nov 2016 00:52:08 +0000</pubDate>
-    <lastBuildDate>Tue, 08 Nov 2016 00:52:08 +0000</lastBuildDate>
+    <link>https://khanmaytok.github.io/stravinsky-docs/</link>
+    <atom:link href="https://khanmaytok.github.io/stravinsky-docs/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 08 Nov 2016 00:53:20 +0000</pubDate>
+    <lastBuildDate>Tue, 08 Nov 2016 00:53:20 +0000</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -64,8 +64,8 @@ día actual.&lt;/p&gt;
 &lt;/table&gt;
 </description>
         <pubDate>Mon, 07 Nov 2016 15:14:34 +0000</pubDate>
-        <link>http://dev.maytok.com/stravinsky/2016/11/07/comunicacion-de-baja/</link>
-        <guid isPermaLink="true">http://dev.maytok.com/stravinsky/2016/11/07/comunicacion-de-baja/</guid>
+        <link>https://khanmaytok.github.io/stravinsky-docs/stravinsky/2016/11/07/comunicacion-de-baja/</link>
+        <guid isPermaLink="true">https://khanmaytok.github.io/stravinsky-docs/stravinsky/2016/11/07/comunicacion-de-baja/</guid>
         
         <category>api</category>
         
@@ -142,8 +142,8 @@ pusimos en el archivo &lt;code class=&quot;highlighter-rouge&quot;&gt;.htpasswd&
 
 </description>
         <pubDate>Mon, 09 May 2016 11:14:34 +0000</pubDate>
-        <link>http://dev.maytok.com/servidores/2016/05/09/autenticacion-password-apache/</link>
-        <guid isPermaLink="true">http://dev.maytok.com/servidores/2016/05/09/autenticacion-password-apache/</guid>
+        <link>https://khanmaytok.github.io/stravinsky-docs/servidores/2016/05/09/autenticacion-password-apache/</link>
+        <guid isPermaLink="true">https://khanmaytok.github.io/stravinsky-docs/servidores/2016/05/09/autenticacion-password-apache/</guid>
         
         <category>apache</category>
         
@@ -188,8 +188,8 @@ $em-&amp;gt;clear();
 sobre el tema (en inglés). Y como siempre, gracias por leernos.&lt;/p&gt;
 </description>
         <pubDate>Sat, 16 Apr 2016 09:14:34 +0000</pubDate>
-        <link>http://dev.maytok.com/php/2016/04/16/bulk-inserts-doctrine/</link>
-        <guid isPermaLink="true">http://dev.maytok.com/php/2016/04/16/bulk-inserts-doctrine/</guid>
+        <link>https://khanmaytok.github.io/stravinsky-docs/php/2016/04/16/bulk-inserts-doctrine/</link>
+        <guid isPermaLink="true">https://khanmaytok.github.io/stravinsky-docs/php/2016/04/16/bulk-inserts-doctrine/</guid>
         
         <category>doctrine</category>
         
@@ -277,8 +277,8 @@ en Github. Si quieres, puedes echar un vistazo al &lt;a href=&quot;https://githu
 para &lt;a href=&quot;http://tympanus.net/codrops&quot;&gt;Codrops&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Thu, 14 Apr 2016 15:04:34 +0000</pubDate>
-        <link>http://dev.maytok.com/jekyll/2016/04/14/jekyll-windows-sin-dolor/</link>
-        <guid isPermaLink="true">http://dev.maytok.com/jekyll/2016/04/14/jekyll-windows-sin-dolor/</guid>
+        <link>https://khanmaytok.github.io/stravinsky-docs/jekyll/2016/04/14/jekyll-windows-sin-dolor/</link>
+        <guid isPermaLink="true">https://khanmaytok.github.io/stravinsky-docs/jekyll/2016/04/14/jekyll-windows-sin-dolor/</guid>
         
         <category>jekyll</category>
         
