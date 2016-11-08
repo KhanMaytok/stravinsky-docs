@@ -5,9 +5,9 @@
 	<meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Habilitar WebGL en Ionic con Crosswalk - DEV Maytok</title>
+<title>Comunicación de baja - DEV Maytok</title>
 <meta name="description" content="Apuntes sobre desarrollo y tecnología en general.">
-<link rel="canonical" href="http://dev.maytok.com/mobile/2016/04/14/habilitar-webgl-ionic/">
+<link rel="canonical" href="http://dev.maytok.com/stravinsky/2016/11/07/comunicacion-de-baja/">
 <meta name="author" content="Giancarlo Ventura" />
 <link rel="shortcut icon" href="http://www.maytok.com/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href=" /css/normalize.css " />
@@ -69,53 +69,65 @@
 			<section class="content content--show" style="top: 0px;">
 				<div class="scroll-wrap">
 					<article class="content__item content__item--show" id="post-content">
-						<span class="category category--full">Mobile</span>
-						<h2 class="title title--full">Habilitar WebGL en Ionic con Crosswalk</h2>
+						<span class="category category--full">Stravinsky</span>
+						<h2 class="title title--full">Comunicación de baja</h2>
 						<div class="meta meta--full">
 							<img class="meta__avatar" src="http://www.maytok.com/img/profile-photo.jpg" alt="author"  height="45" width="45" />
 							<span class="meta__author">Giancarlo Ventura</span>
-							<span class="meta__date"><i class="fa fa-calendar-o"></i><time class="timeago" datetime="2016-04-14T15:14:34+00:00">Cargando...</time></span>
+							<span class="meta__date"><i class="fa fa-calendar-o"></i><time class="timeago" datetime="2016-11-07T15:14:34+00:00">Cargando...</time></span>
 							<span class="meta__reading-time"><i class="fa fa-clock-o"></i>Léelo en 1  min.</span>
 						</div>
-						<p>En Android, puede ser complicado mostrar proyectos basados en WebGL si se usa Ionic Framework. 
-Ionic se basa en Cordova, que permite desarrollar aplicaciones basadas en un WebView.</p>
+						<p><span class="label label-success">POST</span> /send-summary-document/</p>
 
-<p>¿Cuál es el problema? WebGL no es soportado en WebViews para versiones anteriores que 
-Android Lollipop.
-En KitKat, Android cambió a Chromium como la implementación de  WebView nativa, 
-pero está bloqueada a Chromium 33, que no tiene WebGL. En Lollipop, sin embargo, 
-puedes habilitarlo a través de una actualización vía Play Store, para habilitar el soporte. 
-(fuente: https://developer.chrome.com/multidevice/webview/overview)</p>
+<p>Las comunicaciones de baja serán generadas y emitidas a SUNAT con la fecha del
+día actual.</p>
 
-<p><strong>¿Wow, wow, y para las otras versiones de Android? ¿Imposible?</strong></p>
+<pre>
+<code class="language-json">
+{
+  "fecha_referencia" : "2016-09-08",
+  "ruc_emisor": "20538939618",
+  "numero": 1,
+  "items": [
+    {
+      "serie": "FF11",
+      "numero": "1", 
+      "razon_baja": "www.maytok.com",
+      "tipo_documento": "01"
+    }
+  ]
+}
+</code>
+</pre>
 
-<p>Crosswalk entra al rescate.</p>
+<p>Detalle de los parámetros:</p>
 
-<p><strong>¿Cross… qué?</strong></p>
-
-<p>Uno de los problemas que acarrea el desarrollo de aplicaciones HTML5 híbridas es
-que ante la variedad de plataformas móviles (y versiones dentro de cada una), 
-no tienes seguridad de qué APIs de Javascript y soporte a capacidades de CSS 
-estarán disponibles en el dispositivo donde se ejecutará tu app. El proyecto 
-Crosswalk busca atacar este problema. Crosswalk es un runtime HTML que incluyes 
-en tu app, de manera que tu app funcione sobre éste y se comporta de la misma forma
-en cualquier dispositivo. Crosswalk es open source, así que no solo es gratuito
-sino que también puedes modificarlo.</p>
-
-<p><strong>¿Y está en Ionic?</strong></p>
-
-<p>¡Claro! solo tienes que ejecutar:</p>
-
-<figure class="highlight"><pre><code class="language-cli" data-lang="cli">ionic browser add crosswalk</code></pre></figure>
-
-<p>Y Crosswalk estará habilitado en tu proyecto. Ahora, solo te falta añadir unas líneas más:
-Y es que por defecto, Chromium tiene una lista negra de GPU’s, en donde no permite ejecutar
-WebGL. Puedes dejarla como está, pero no funcionará en muchos dispositivos. Así que en el archivo 
-<code class="highlighter-rouge">config.xml</code> solo tienes que agregar el siguiente flag: <code class="highlighter-rouge">--ignore-gpu-blacklist</code></p>
-
-<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;preference</span> <span class="na">name=</span><span class="s">"xwalkCommandLine"</span> <span class="na">value=</span><span class="s">"--disable-pull-to-refresh-effect --ignore-gpu-blacklist"</span> <span class="nt">/&gt;</span></code></pre></figure>
-
-<p>¿Sencillo, verdad? Ahora WebGL funciona en tu proyecto.</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th style="text-align: left">Nombre</th>
+      <th style="text-align: right">Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">fecha_referencia</td>
+      <td style="text-align: right">Fecha de generación del documento dado de baja. Esta fecha es diferente a la fecha de generación del documento</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">numero</td>
+      <td style="text-align: right">El número correlativo de la comunicación de baja</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">items</td>
+      <td style="text-align: right">La lista de documentos a los que se desea dar de baja</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tipo_documento</td>
+      <td style="text-align: right">El tipo de documento de la comunicación de baja. Para más información consultar la tabla resumen</td>
+    </tr>
+  </tbody>
+</table>
 
 					</article>
 				</div>
